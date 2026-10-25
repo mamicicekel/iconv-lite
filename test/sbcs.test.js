@@ -195,7 +195,7 @@ describe("Full SBCS encoding tests #node-web", function () {
       })(enc) } }
 })
 
-describe("SBCS encode maps U+FFFD to defaultCharSingleByte", function () {
+describe("SBCS encode maps U+FFFD to defaultCharSingleByte #node-web", function () {
   const encodings = ["windows1252", "windows874", "iso88593", "koi8r"]
 
   encodings.forEach(function (enc) {

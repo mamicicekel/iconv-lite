@@ -35,9 +35,8 @@ exports._sbcs = class SBCSCodec {
 
     for (let i = 0; i < codecOptions.chars.length; i++) {
       const code = codecOptions.chars.charCodeAt(i)
-      // Decode tables use U+FFFD for unassigned bytes. Encoding that
-      // replacement back to those bytes produces output TextDecoder
-      // rejects in fatal mode; keep the default "?" instead.
+      // U+FFFD marks unassigned bytes in decode tables, not an encodable character.
+      // Keep defaultCharSingleByte for it instead of mapping it to an unassigned byte.
       if (code === 0xFFFD) continue
       encodeBuf[code] = i
     }
